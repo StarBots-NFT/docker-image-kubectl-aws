@@ -55,3 +55,13 @@ particle4dev/kubectl-doctl kubectl get nodes
 ```
 kubectl-1.18.6-doctl-1.46.0
 ```
+
+### How to run manually
+
+export IMAGE_NAME="kubectl-doctl"
+
+export CI_PROJECT_DIR="$(pwd)"
+
+export CI_IMAGE="$DOCKER_HUB_USER/${IMAGE_NAME}"
+
+export CI_REGISTRY_IMAGE="docker.io/${CI_IMAGE}"
