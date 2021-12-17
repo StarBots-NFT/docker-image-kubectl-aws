@@ -16,24 +16,13 @@ This docker image contains the following software stack:
 
 - Alpine
 
-- [doctl](https://github.com/digitalocean/doctl)
-
 - [kubectl](https://github.com/kubernetes/kubectl)
+
+- [aws](https://github.com/aws/aws-cli)
 
 ## Usage
 
 #### Usage
-
-- doctl
-
-```sh
-# get credentials
-$ docker run \
---rm \
---env-file $ENV_FILE \
--v <path_to_save_kube_config>/config:/root/.kube/config \
-particle4dev/kubectl-doctl doctl kubernetes cluster kubeconfig save <cluster_name>
-```
 
 - kubectl
 
@@ -53,12 +42,12 @@ particle4dev/kubectl-doctl kubectl get nodes
 - Step2: Add version you wanted in bottom the file. E.g
 
 ```
-kubectl-1.18.6-doctl-1.46.0
+kubectl-1.18.6-aws-2.4.6
 ```
 
 ### How to run manually
 
-export IMAGE_NAME="kubectl-doctl"
+export IMAGE_NAME="kubectl-aws"
 
 export CI_PROJECT_DIR="$(pwd)"
 

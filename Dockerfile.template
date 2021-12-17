@@ -4,8 +4,7 @@ MAINTAINER Nam Hoang <particel4dev@gmail.com>
 ENV DUMB_INIT_VERSION 1.2.2
 ENV HELM_VERSION 3.3.4
 ENV KUBECTL_VERSION %kubectl%
-ENV DOCTL_VERSION %doctl%
-ENV AWS_CLI_VER=2.2.43
+ENV AWS_CLI_VER %aws%
 
 RUN \
   apk add --no-cache --virtual .build-deps \
@@ -35,13 +34,6 @@ RUN wget -O /usr/local/bin/dumb-init https://github.com/Yelp/dumb-init/releases/
 RUN curl -LO https://storage.googleapis.com/kubernetes-release/release/v${KUBECTL_VERSION}/bin/linux/amd64/kubectl && \
   chmod +x ./kubectl && \
   mv ./kubectl /usr/local/bin/kubectl
-
-# install doctl
-RUN curl -LO https://github.com/digitalocean/doctl/releases/download/v${DOCTL_VERSION}/doctl-${DOCTL_VERSION}-linux-amd64.tar.gz && \
-  tar xf ./doctl-${DOCTL_VERSION}-linux-amd64.tar.gz && \
-  rm -r ./doctl-${DOCTL_VERSION}-linux-amd64.tar.gz && \
-  chmod +x ./doctl && \
-  mv ./doctl /usr/local/bin/doctl
 
 # install helm
 RUN curl -LO https://get.helm.sh/helm-v${HELM_VERSION}-linux-amd64.tar.gz && \

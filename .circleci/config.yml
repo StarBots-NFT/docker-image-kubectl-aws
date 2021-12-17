@@ -14,7 +14,7 @@ jobs:
       - run:
           name: "Setup custom environment variables"
           command: |
-            echo 'export IMAGE_NAME="kubectl-doctl"' >> $BASH_ENV
+            echo 'export IMAGE_NAME="kubectl-aws"' >> $BASH_ENV
             echo 'export CI_PROJECT_DIR="$(pwd)"' >> $BASH_ENV
             echo 'export CI_IMAGE="$DOCKER_HUB_USER/${IMAGE_NAME}"' >> $BASH_ENV
             echo 'export CI_REGISTRY_IMAGE="docker.io/${CI_IMAGE}"' >> $BASH_ENV
