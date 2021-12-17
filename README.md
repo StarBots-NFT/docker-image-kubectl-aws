@@ -4,7 +4,7 @@ This repository contains Dockerized [kubectl](https://github.com/kubernetes/kube
 
 **The problem** that this image tried to solved:
 
-When you get the credentials of Digitalocean Kubernetes cluster to your local and use it with Kubeclt Docker Image, it won't work because Kubeclt command needs AWS CLI to connect to cluster. I solved this issue by merging Kubectl and AWS CLI into one image. See Usage section to see how to use this.
+When you get the credentials of EKS cluster to your local and use it with Kubeclt Docker Image, it won't work because Kubeclt command needs AWS CLI to connect to cluster. I solved this issue by merging Kubectl and AWS CLI into one image. See Usage section to see how to use this.
 
 <br />
 
