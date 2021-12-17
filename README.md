@@ -35,6 +35,17 @@ $ docker run \
 particle4dev/kubectl-doctl kubectl get nodes
 ```
 
+- aws ???
+
+```sh
+# get k8s nodes
+$ docker run \
+--rm \
+--env-file $ENV_FILE \
+-v <path_to_save_kube_config>/config:/root/.kube/config \
+particle4dev/kubectl-doctl kubectl get nodes
+```
+
 ### How to add a new version
 
 - Step1: Open VERSIONS file
@@ -54,3 +65,13 @@ export CI_PROJECT_DIR="$(pwd)"
 export CI_IMAGE="$DOCKER_HUB_USER/${IMAGE_NAME}"
 
 export CI_REGISTRY_IMAGE="docker.io/${CI_IMAGE}"
+
+
+
+kubectl-1.23.1-aws-1.22.24
+kubectl-1.23.1-aws-2.4.5
+kubectl-1.23.1-aws-1.22.23
+kubectl-1.18.6-aws-2.4.6
+kubectl-1.18.6-aws-1.22.24
+kubectl-1.18.6-aws-2.4.5
+kubectl-1.18.6-aws-1.22.23
