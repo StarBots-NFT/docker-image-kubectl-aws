@@ -1,4 +1,3 @@
 #!/bin/bash
-echo "zzzz $1"
 docker pull $1
 echo $?
