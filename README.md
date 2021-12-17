@@ -36,18 +36,17 @@ $ docker run \
 --rm \
 --env-file $ENV_FILE \
 -v <path_to_save_kube_config>/config:/root/.kube/config \
-particle4dev/kubectl-doctl kubectl get nodes
+particle4dev/kubectl-aws kubectl get nodes
 ```
 
-- aws ???
+- aws
 
 ```sh
-# get k8s nodes
+# show aws cli version
 $ docker run \
 --rm \
 --env-file $ENV_FILE \
--v <path_to_save_kube_config>/config:/root/.kube/config \
-particle4dev/kubectl-doctl kubectl get nodes
+particle4dev/kubectl-aws aws --version
 ```
 
 ### How to add a new version
