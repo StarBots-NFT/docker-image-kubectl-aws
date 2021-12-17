@@ -4,7 +4,7 @@ MAINTAINER Nam Hoang <particel4dev@gmail.com>
 ENV DUMB_INIT_VERSION 1.2.2
 ENV HELM_VERSION 3.3.4
 ENV KUBECTL_VERSION %kubectl%
-ENV DOCTL_VERSION %doctl%
+ENV AWS_CLI_VER %aws%
 
 RUN \
   apk add --no-cache --virtual .build-deps \
@@ -35,13 +35,6 @@ RUN curl -LO https://storage.googleapis.com/kubernetes-release/release/v${KUBECT
   chmod +x ./kubectl && \
   mv ./kubectl /usr/local/bin/kubectl
 
-# install doctl
-RUN curl -LO https://github.com/digitalocean/doctl/releases/download/v${DOCTL_VERSION}/doctl-${DOCTL_VERSION}-linux-amd64.tar.gz && \
-  tar xf ./doctl-${DOCTL_VERSION}-linux-amd64.tar.gz && \
-  rm -r ./doctl-${DOCTL_VERSION}-linux-amd64.tar.gz && \
-  chmod +x ./doctl && \
-  mv ./doctl /usr/local/bin/doctl
-
 # install helm
 RUN curl -LO https://get.helm.sh/helm-v${HELM_VERSION}-linux-amd64.tar.gz && \
   tar xf ./helm-v${HELM_VERSION}-linux-amd64.tar.gz && \
@@ -49,6 +42,10 @@ RUN curl -LO https://get.helm.sh/helm-v${HELM_VERSION}-linux-amd64.tar.gz && \
   chmod +x ./linux-amd64/helm && \
   mv ./linux-amd64/helm /usr/local/bin/helm && \
   rm -r ./linux-amd64
+
+RUN apk update && apk add --no-cache curl zip &&  \
+  curl -s https://awscli.amazonaws.com/awscli-exe-linux-x86_64-${AWS_CLI_VER}.zip -o awscliv2.zip && \
+  unzip awscliv2.zip && ./aws/install
 
 # remove packages
 RUN apk del .build-deps
